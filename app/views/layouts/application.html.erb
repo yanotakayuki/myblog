@@ -2,14 +2,37 @@
 <html>
   <head>
     <title>Myblog</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
 
   <body>
+    <div class="header">
+      <nav class="blue lighten-2">
+        <div class="nav-wrapper">
+          <%= link_to "BLOG", "/blogs", method: :get, class: "brand-logo" %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% unless user_signed_in? %>
+            <li><%= link_to "SignIn", new_user_session_path, class: "post" %></li>
+            <li><%= link_to "SignUp", new_user_registration_path, class: "post" %></li>
+            <% end %>
+            <% if user_signed_in? %>
+            <li><%= link_to "MyPage", 'users/:id', method: :get %></li>
+            <li><%= link_to "SignOut", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "New", 'blogs/new', mathod: :get %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
     <%= yield %>
+
+    <div class="footer"></div>
   </body>
 </html>

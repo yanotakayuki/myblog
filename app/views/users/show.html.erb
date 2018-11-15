@@ -1,0 +1,13 @@
+<div class="main-content">
+  <div class="row"><%= @nickname %>さんの投稿一覧
+    <div class="blog-list">
+      <% @blogs.each do |blog| %>
+        <div class="card darken-1 ">
+          <div class="card-content black-text">
+            <p><%= blog.text %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
