@@ -7,7 +7,6 @@
     <%= csrf_meta_tags %>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
@@ -16,11 +15,17 @@
     <div class="header">
       <nav class="blue lighten-2">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">BLOG</a>
+          <%= link_to "BLOG", "/blogs", method: :get, class: "brand-logo" %>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Signin</a></li>
-            <li><a href="badges.html">SignOut</a></li>
+            <% unless user_signed_in? %>
+            <li><%= link_to "SignIn", new_user_session_path, class: "post" %></li>
+            <li><%= link_to "SignUp", new_user_registration_path, class: "post" %></li>
+            <% end %>
+            <% if user_signed_in? %>
+            <li><%= link_to "MyPage", 'users/:id', method: :get %></li>
+            <li><%= link_to "SignOut", destroy_user_session_path, method: :delete %></li>
             <li><%= link_to "New", 'blogs/new', mathod: :get %></li>
+            <% end %>
           </ul>
         </div>
       </nav>
