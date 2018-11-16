@@ -1,0 +1,18 @@
+<div class="main-content">
+  <div class="card-panel">投稿者：<%= @blog.user.nickname %>さん</div>
+    <div class="row">
+      <% if user_signed_in? && current_user.id == @blog.user_id %>
+        <div class="blog-list">
+          <div class="card darken-1 ">
+              <div class="card-content black-text">
+                <p><%= @blog.text %></p>
+              </div>
+              <div class="card-action">
+                <%= link_to "EDIT", "/blogs/#{@blog.id}/edit", method: :get %>
+                <%= link_to "DELETE", "/blogs/#{@blog.id}", method: :delete %>
+              </div>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</div>
