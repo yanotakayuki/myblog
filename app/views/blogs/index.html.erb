@@ -1,16 +1,18 @@
 <div class="main-content">
   <div class="row">
-    <div class="col s12 m6 ">
+    <div class="blog-list">
       <% @blogs.each do |blog| %>
         <div class="card darken-1 ">
           <div class="card-content black-text">
             <p><%= blog.text %></p>
           </div>
+          <% if user_signed_in? && current_user.id == blog.user_id %>
           <div class="card-action">
-            <a href="#">This is a link</a>
-            <a href="#">This is a link</a>
-            <a href="#">This is a link</a>
+            <%= link_to "SHOW", "/blogs/#{blog.id}", method: :get %>
+            <%= link_to "EDIT", "/blogs/#{blog.id}/edit", method: :get %>
+            <%= link_to "DELETE", "/blogs/#{blog.id}", method: :delete %>
           </div>
+          <% end %>
         </div>
       <% end %>
     </div>

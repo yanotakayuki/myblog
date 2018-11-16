@@ -3,9 +3,17 @@ body{
   height: 100%;
 }
 
+// layuout style
+.brand-logo{
+  margin-left: 80px;
+}
+
 // index style
-.card-action{
-  text-align: center;
+.blog-list{
+  width: 70%;
+  margin: 100px auto 0px;
+  left: auto;
+  right: auto;
 }
 
 // new style
@@ -14,4 +22,9 @@ body{
 }
 .waves-button-input{
   color: white;
+}
+
+//edit style{
+.card-panel{
+  width: 20%;
 }
