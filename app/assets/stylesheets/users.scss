@@ -1,3 +1,16 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.devisefield{
+  height: 300px;
+  width: 600px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+//user_show style{
+.contributor p{
+  text-align: center;
+  font-size: 30px;
+}

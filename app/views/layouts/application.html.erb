@@ -22,9 +22,9 @@
             <li><%= link_to "SignUp", new_user_registration_path, class: "post" %></li>
             <% end %>
             <% if user_signed_in? %>
-            <li><%= link_to "MyPage", 'users/:id', method: :get %></li>
+            <li><%= link_to "MyPage", '/users/:id', method: :get %></li>
             <li><%= link_to "SignOut", destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to "New", 'blogs/new', mathod: :get %></li>
+            <li><%= link_to "New", '/blogs/new', mathod: :get %></li>
             <% end %>
           </ul>
         </div>
